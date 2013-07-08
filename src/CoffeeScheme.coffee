@@ -2,10 +2,10 @@ root = exports ? window
 
 class root.CoffeeScheme
     checkList: (list) ->
-        return {}.toString.call(list) is '[object Array]'
+        return ({}.toString.call list) is '[object Array]'
 
     checkValue: (value) ->
-        return !isNaN(parseFloat(value)) and isFinite value
+        return not isNaN( parseFloat value ) and isFinite value
 
     car: (list) ->
         return unless @checkList list
@@ -22,7 +22,7 @@ class root.CoffeeScheme
         '/': (list) -> list.reduce (t, s) -> t / s
 
     lookUp: (fun) ->
-        root.CoffeeScheme.FUNCTIONS[fun]
+        CoffeeScheme.FUNCTIONS[fun]
 
     eval: (exp) ->
         unless @checkList exp
@@ -30,7 +30,9 @@ class root.CoffeeScheme
             return @lookUp exp
         else
             orgExp = exp.slice 0
-            (@eval @car exp) @evalMap @cdr orgExp
+            fun = (@eval @car exp)
+            return orgExp unless typeof fun is 'function'
+            fun @evalMap @cdr orgExp
 
     evalMap: (exp) ->
         that = @
