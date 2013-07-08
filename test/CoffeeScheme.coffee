@@ -53,3 +53,6 @@ describe 'CoffeeScheme', ->
         cs.eval(['-' ,['+', 1 ,2 ,3] , 5]).should.equal 1
         cs.eval(['*' ,['+', 1 ,2 ,3] , 5]).should.equal 30
         cs.eval(['/' ,['*' ,['+', 1 ,2 ,3] , 5],6]).should.equal 5
+        cs.eval(6).should.equal 6
+        cs.eval([1,2,3]).should.eql [1,2,3]
+        should.not.exist cs.eval()
