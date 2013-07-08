@@ -2,7 +2,6 @@
   "name": "coffee-scheme",
   "version": "0.0.0",
   "description": "coffee-scheme =============",
-  "main": "index.js",
   "scripts": {
     "test": "./node_modules/.bin/grunt"
   },
@@ -10,8 +9,8 @@
     "type": "git",
     "url": "git://github.com/freddiefujiwara/coffee-scheme.git"
   },
-  "author": "",
-  "license": "BSD",
+  "author": "Freddie Fujiwara <github@ze.gs>",
+  "license": "MIT",
   "readmeFilename": "README.md",
   "gitHead": "702a95ba44b599eee694dc4b5c2b2fe4ce3c5258",
   "devDependencies": {
